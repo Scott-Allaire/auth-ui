@@ -1,0 +1,16 @@
+<div fxlayout="row" fxLayoutAlign="center center">
+  <mat-card class="login-card">
+    <mat-card-title class="card-title">Login</mat-card-title>
+    <mat-card-content class="card-content">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutAlign="space-between center">
+        <mat-form-field appearance="fill">
+          <input matInput placeholder="Username" id="username" formControlName="username" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <input matInput type="password" placeholder="Password" id="password" formControlName="password" required>
+        </mat-form-field>
+        <button mat-button color="secondary">Login</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

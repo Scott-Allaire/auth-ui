@@ -1,0 +1,12 @@
+<mat-card>
+  <mat-card-title class="card-title">Users</mat-card-title>
+  <mat-card-content class="card-content">
+    <mat-list>
+      <mat-list-item *ngFor="let user of userPage?.values" fxLayout="row">
+        <div fxFlex>{{user.username}}</div>
+        <div fxFlex="none" (click)="remove(user.id)"><fa-icon [icon]="faMinusCircle"></fa-icon></div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+

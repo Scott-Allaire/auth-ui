@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: rgb(43, 42, 51);
+  color: white;
+  margin: 0;
+  font-family:
+  Roboto, "Helvetica Neue", sans-serif;
+}
+
+.card-title {
+  padding: 20px;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.mat-list-item-content {
+  width: 100%;
+}
+
+button {
+  padding: 8px 20px;
+}
