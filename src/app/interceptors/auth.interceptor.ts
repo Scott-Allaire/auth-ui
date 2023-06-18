@@ -9,6 +9,10 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
+  private unprotectedPaths = [
+    '/login',
+    '/signup'
+  ]
   constructor() {}
 
   intercept(
@@ -17,7 +21,7 @@ export class AuthInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     const authToken = sessionStorage.getItem('auth-token');
 
-    if (authToken) {
+    if (authToken && this.isProtected(request.url)) {
       request = request.clone({
         setHeaders: {Authorization: `Bearer ${authToken}`},
       });
@@ -25,5 +29,15 @@ export class AuthInterceptor implements HttpInterceptor {
 
     console.log('Authorization', request.headers.get('Authorization'));
     return next.handle(request);
+  }
+
+  private isProtected(url: string): boolean {
+    for (var path of this.unprotectedPaths) {
+      if (url.endsWith(path)) {
+        return false;
+      }
+    }
+
+    return true;
   }
 }

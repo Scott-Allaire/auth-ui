@@ -4,7 +4,7 @@
     <mat-card-content class="card-content">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutAlign="space-between center">
         <mat-form-field appearance="fill">
-          <input matInput placeholder="Username" id="username" formControlName="username" required>
+          <input matInput placeholder="Email" id="email" formControlName="email" required>
         </mat-form-field>
         <mat-form-field appearance="fill">
           <input matInput type="password" placeholder="Password" id="password" formControlName="password" required>

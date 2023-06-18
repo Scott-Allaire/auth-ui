@@ -1,4 +1,5 @@
+import { AuthStatus } from "./auth-status.model";
+
 export interface AuthResponse {
-    userId: number,
-    token: string
+  status: AuthStatus
 }

@@ -18,7 +18,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent {
   loginForm = new FormGroup({
-    username: new FormControl('admin'),
+    email: new FormControl('test@example.com'),
     password: new FormControl('secret'),
   });
   storeSub: Subscription | undefined;
@@ -28,13 +28,13 @@ export class LoginComponent {
   onSubmit(): void {
     const subscription: Subscription = this.authService
       .login(
-        this.loginForm.get('username')?.value,
+        this.loginForm.get('email')?.value,
         this.loginForm.get('password')?.value
       )
       .subscribe({
         next: (response) => {
-          sessionStorage.setItem('auth-token', response.token);
-          console.log()
+          // sessionStorage.setItem('auth-token', response.token);
+          console.log('Auth response:', response);
           this.router.navigate(['users']);
         },
         error: (e) => console.error(e),

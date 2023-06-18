@@ -1,6 +1,7 @@
 export interface Page<T> {
-  total: number,
+  totalItems: number,
+  totalPages: number,
   pageSize: number,
   pageNumber: number,
-  values: Array<T>
+  content: Array<T>
 }
